@@ -2,6 +2,8 @@ package com.raxdenstudios.mvp;
 
 import android.os.Bundle;
 
+import icepick.Icepick;
+
 /**
  * Created by Raxden on 24/06/2016.
  */
@@ -16,7 +18,7 @@ public abstract class Presenter<TView extends IView> implements IPresenter<TView
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
+        Icepick.restoreInstanceState(this, savedInstanceState);
     }
 
     @Override
@@ -25,8 +27,8 @@ public abstract class Presenter<TView extends IView> implements IPresenter<TView
     }
 
     @Override
-    public void onSave(Bundle state) {
-
+    public void onSave(Bundle outState) {
+        Icepick.saveInstanceState(this, outState);
     }
 
     @Override

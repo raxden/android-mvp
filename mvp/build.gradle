@@ -1,0 +1,30 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = GROUP
+version = VERSION_NAME
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+    }
+}
+
+repositories {
+    maven {url "https://clojars.org/repo/"}
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile deps.junit
+
+    compile deps.androidv7
+    compile deps.icepick
+    provided deps.icepickProcessor
+}
+
+apply from: 'build_javadoc.gradle'

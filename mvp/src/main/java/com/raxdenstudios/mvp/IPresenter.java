@@ -30,9 +30,9 @@ public interface IPresenter<TView extends IView> {
     /**
      * Called during View's onSaveInstanceState to persist Presenter's state as well.
      *
-     * @param state
+     * @param outState
      */
-    void onSave(Bundle state);
+    void onSave(Bundle outState);
 
     /**
      * Called when user a View becomes destroyed not because of configuration change
