@@ -31,7 +31,7 @@ ext {
 
     // App dependencies
     supportLibraryVersion = '24.0.0'
-    icepickVersion = '3.2.0' // https://github.com/frankiesardo/icepick
+    icepickVersion = '3.2.0'    // https://github.com/frankiesardo/icepick
 
     // Test dependencies
     jUnitVersion = '4.12'
