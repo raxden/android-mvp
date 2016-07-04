@@ -31,7 +31,6 @@ ext {
 
     // App dependencies
     supportLibraryVersion = '24.0.0'
-    icepickVersion = '3.2.0'    // https://github.com/frankiesardo/icepick
 
     // Test dependencies
     jUnitVersion = '4.12'
@@ -41,8 +40,6 @@ ext.deps = [
     // Android
     androidv7:          "com.android.support:appcompat-v7:$supportLibraryVersion",
 
-    // Third Party
-    icepick:            "frankiesardo:icepick:$icepickVersion",
-    icepickProcessor:   "frankiesardo:icepick-processor:$icepickVersion",
+    // Testing
     junit:              "junit:junit:${jUnitVersion}"
 ]

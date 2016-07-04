@@ -1,8 +1,9 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group = GROUP
-version = VERSION_NAME
+group = GROUP_NAME
+version = LIBRARY_VERSION
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -23,8 +24,6 @@ dependencies {
     testCompile deps.junit
 
     compile deps.androidv7
-    compile deps.icepick
-    provided deps.icepickProcessor
 }
 
 apply from: 'build_javadoc.gradle'

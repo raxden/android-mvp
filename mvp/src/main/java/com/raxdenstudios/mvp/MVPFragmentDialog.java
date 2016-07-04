@@ -1,6 +1,6 @@
 package com.raxdenstudios.mvp;
 
-import android.app.Fragment;
+import android.app.DialogFragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,9 +9,9 @@ import com.raxdenstudios.mvp.presenter.IPresenter;
 import com.raxdenstudios.mvp.view.IView;
 
 /**
- * Created by Raxden on 24/06/2016.
+ * Created by Raxden on 04/07/2016.
  */
-public class MVPFragment<TPresenter extends IPresenter> extends Fragment
+public class MVPFragmentDialog<TPresenter extends IPresenter> extends DialogFragment
         implements IView {
 
     TPresenter mPresenter;

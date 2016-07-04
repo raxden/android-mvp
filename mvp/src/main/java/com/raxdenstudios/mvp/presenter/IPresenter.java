@@ -1,6 +1,8 @@
-package com.raxdenstudios.mvp;
+package com.raxdenstudios.mvp.presenter;
 
 import android.os.Bundle;
+
+import com.raxdenstudios.mvp.view.IView;
 
 /**
  * Created by Raxden on 24/06/2016.
