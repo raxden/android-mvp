@@ -22,6 +22,16 @@ public class Presenter<TView extends IView> implements IPresenter<TView> {
     }
 
     @Override
+    public void onResume() {
+
+    }
+
+    @Override
+    public void onPause() {
+
+    }
+
+    @Override
     public void onViewLoaded() {
 
     }
