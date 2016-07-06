@@ -50,7 +50,7 @@ public abstract class MVPActivity<TPresenter extends IPresenter> extends AppComp
     }
 
     @Override
-    public void onDestroy() {
+    protected void onDestroy() {
         super.onDestroy();
         mPresenter.onDropView();
         mPresenter.onDestroy();
