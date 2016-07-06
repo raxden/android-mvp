@@ -11,7 +11,7 @@ import com.raxdenstudios.mvp.view.IView;
 /**
  * Created by Raxden on 04/07/2016.
  */
-public class MVPFragmentDialog<TPresenter extends IPresenter> extends DialogFragment
+public abstract class MVPFragmentDialog<TPresenter extends IPresenter> extends DialogFragment
         implements IView {
 
     TPresenter mPresenter;
@@ -26,7 +26,9 @@ public class MVPFragmentDialog<TPresenter extends IPresenter> extends DialogFrag
     public void onAttach(Context context) {
         super.onAttach(context);
 
-        if (mPresenter == null) mPresenter = initializePresenter(context);
+        if (mPresenter == null) {
+            mPresenter = initializePresenter(context);
+        }
         if (mPresenter == null) {
             throw new ClassCastException(this.getClass().toString() + " must initialize Presenter" +
                     " override initializePresenter method to init Presenter.");
@@ -44,6 +46,18 @@ public class MVPFragmentDialog<TPresenter extends IPresenter> extends DialogFrag
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mPresenter.onViewLoaded();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mPresenter.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mPresenter.onPause();
     }
 
     @Override
@@ -65,8 +79,6 @@ public class MVPFragmentDialog<TPresenter extends IPresenter> extends DialogFrag
      * @param context
      * @return
      */
-    public TPresenter initializePresenter(Context context) {
-        return null;
-    }
+    public abstract TPresenter initializePresenter(Context context);
 
 }

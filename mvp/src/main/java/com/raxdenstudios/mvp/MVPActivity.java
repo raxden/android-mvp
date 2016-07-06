@@ -11,7 +11,7 @@ import com.raxdenstudios.mvp.view.IView;
 /**
  * Created by Raxden on 24/06/2016.
  */
-public class MVPActivity<TPresenter extends IPresenter> extends AppCompatActivity
+public abstract class MVPActivity<TPresenter extends IPresenter> extends AppCompatActivity
         implements IView {
 
     TPresenter mPresenter;
@@ -26,13 +26,27 @@ public class MVPActivity<TPresenter extends IPresenter> extends AppCompatActivit
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (mPresenter == null) mPresenter = initializePresenter(this);
+        if (mPresenter == null) {
+            mPresenter = initializePresenter(this);
+        }
         if (mPresenter == null) {
             throw new ClassCastException(this.getClass().toString() + " must initialize Presenter override initializePresenter method to init Presenter.");
         }
         mPresenter.onTakeView(this);
         mPresenter.onCreate(savedInstanceState);
         mPresenter.onViewLoaded();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mPresenter.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mPresenter.onPause();
     }
 
     @Override
@@ -48,8 +62,6 @@ public class MVPActivity<TPresenter extends IPresenter> extends AppCompatActivit
      * @param context
      * @return
      */
-    public TPresenter initializePresenter(Context context) {
-        return null;
-    }
+    public abstract TPresenter initializePresenter(Context context);
 
 }

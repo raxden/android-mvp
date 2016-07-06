@@ -23,6 +23,12 @@ public interface IPresenter<TView extends IView> {
      */
     void onCreate(Bundle savedState);
 
+
+    void onResume();
+
+
+    void onPause();
+
     /**
      * Called when view has been loaded.
      *
