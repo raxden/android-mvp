@@ -19,7 +19,9 @@ public abstract class MVPFragment<TPresenter extends IPresenter> extends Fragmen
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        mPresenter.onSave(outState);
+        if (mPresenter != null) {
+            mPresenter.onSave(outState);
+        }
     }
 
     @Override
@@ -29,47 +31,57 @@ public abstract class MVPFragment<TPresenter extends IPresenter> extends Fragmen
         if (mPresenter == null) {
             mPresenter = initializePresenter(context);
         }
-        if (mPresenter == null) {
-            throw new ClassCastException(this.getClass().toString() + " must initialize Presenter" +
-                    " override initializePresenter method to init Presenter.");
+        if (mPresenter != null) {
+            mPresenter.onTakeView(this);
         }
-        mPresenter.onTakeView(this);
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPresenter.onCreate(savedInstanceState);
+        if (mPresenter != null) {
+            mPresenter.onCreate(savedInstanceState);
+        }
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mPresenter.onViewLoaded();
+        if (mPresenter != null) {
+            mPresenter.onViewLoaded();
+        }
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        mPresenter.onResume();
+        if (mPresenter != null) {
+            mPresenter.onResume();
+        }
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        mPresenter.onPause();
+        if (mPresenter != null) {
+            mPresenter.onPause();
+        }
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        mPresenter.onDropView();
+        if (mPresenter != null) {
+            mPresenter.onDropView();
+        }
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mPresenter.onDestroy();
+        if (mPresenter != null) {
+            mPresenter.onDestroy();
+        }
     }
 
     /**

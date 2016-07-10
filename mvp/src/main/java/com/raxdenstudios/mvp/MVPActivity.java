@@ -19,7 +19,9 @@ public abstract class MVPActivity<TPresenter extends IPresenter> extends AppComp
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        mPresenter.onSave(outState);
+        if (mPresenter != null) {
+            mPresenter.onSave(outState);
+        }
     }
 
     @Override
@@ -29,31 +31,36 @@ public abstract class MVPActivity<TPresenter extends IPresenter> extends AppComp
         if (mPresenter == null) {
             mPresenter = initializePresenter(this);
         }
-        if (mPresenter == null) {
-            throw new ClassCastException(this.getClass().toString() + " must initialize Presenter override initializePresenter method to init Presenter.");
+        if (mPresenter != null) {
+            mPresenter.onTakeView(this);
+            mPresenter.onCreate(savedInstanceState);
+            mPresenter.onViewLoaded();
         }
-        mPresenter.onTakeView(this);
-        mPresenter.onCreate(savedInstanceState);
-        mPresenter.onViewLoaded();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        mPresenter.onResume();
+        if (mPresenter != null) {
+            mPresenter.onResume();
+        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        mPresenter.onPause();
+        if (mPresenter != null) {
+            mPresenter.onPause();
+        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mPresenter.onDropView();
-        mPresenter.onDestroy();
+        if (mPresenter != null) {
+            mPresenter.onDropView();
+            mPresenter.onDestroy();
+        }
     }
 
     /**
