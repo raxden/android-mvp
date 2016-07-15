@@ -91,6 +91,8 @@ public abstract class MVPFragment<TPresenter extends IPresenter> extends Fragmen
      * @param context
      * @return
      */
-    public abstract TPresenter initializePresenter(Context context);
+    public TPresenter initializePresenter(Context context) {
+        return null;
+    }
 
 }

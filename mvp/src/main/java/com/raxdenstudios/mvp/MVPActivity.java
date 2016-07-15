@@ -69,6 +69,8 @@ public abstract class MVPActivity<TPresenter extends IPresenter> extends AppComp
      * @param context
      * @return
      */
-    public abstract TPresenter initializePresenter(Context context);
+    public TPresenter initializePresenter(Context context) {
+        return null;
+    }
 
 }

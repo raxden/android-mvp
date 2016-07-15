@@ -79,6 +79,8 @@ public abstract class MVPFragmentDialog<TPresenter extends IPresenter> extends D
      * @param context
      * @return
      */
-    public abstract TPresenter initializePresenter(Context context);
+    public TPresenter initializePresenter(Context context) {
+        return null;
+    }
 
 }
