@@ -1,5 +1,6 @@
 package com.raxdenstudios.mvp.presenter;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import com.raxdenstudios.mvp.view.IView;
@@ -9,7 +10,12 @@ import com.raxdenstudios.mvp.view.IView;
  */
 public class Presenter<TView extends IView> implements IPresenter<TView> {
 
+    public Context mContext;
     public TView mView;
+
+    public Presenter(Context context) {
+        mContext = context;
+    }
 
     @Override
     public void onTakeView(TView view) {
