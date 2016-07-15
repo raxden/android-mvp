@@ -14,7 +14,7 @@ import com.raxdenstudios.mvp.view.IView;
 public abstract class MVPActivity<TPresenter extends IPresenter> extends AppCompatActivity
         implements IView {
 
-    TPresenter mPresenter;
+    public TPresenter mPresenter;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -69,8 +69,6 @@ public abstract class MVPActivity<TPresenter extends IPresenter> extends AppComp
      * @param context
      * @return
      */
-    public TPresenter initializePresenter(Context context) {
-        return null;
-    }
+    public abstract TPresenter initializePresenter(Context context);
 
 }

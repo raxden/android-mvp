@@ -14,7 +14,7 @@ import com.raxdenstudios.mvp.view.IView;
 public abstract class MVPFragment<TPresenter extends IPresenter> extends Fragment
         implements IView {
 
-    TPresenter mPresenter;
+    public TPresenter mPresenter;
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -91,8 +91,6 @@ public abstract class MVPFragment<TPresenter extends IPresenter> extends Fragmen
      * @param context
      * @return
      */
-    public TPresenter initializePresenter(Context context) {
-        return null;
-    }
+    public abstract TPresenter initializePresenter(Context context);
 
 }

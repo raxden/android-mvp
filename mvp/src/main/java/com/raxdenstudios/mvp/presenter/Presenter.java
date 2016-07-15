@@ -9,7 +9,7 @@ import com.raxdenstudios.mvp.view.IView;
  */
 public class Presenter<TView extends IView> implements IPresenter<TView> {
 
-    TView mView;
+    public TView mView;
 
     @Override
     public void onTakeView(TView view) {
@@ -49,10 +49,6 @@ public class Presenter<TView extends IView> implements IPresenter<TView> {
     @Override
     public void onDropView() {
         mView = null;
-    }
-
-    public TView getView() {
-        return mView;
     }
 
 }
