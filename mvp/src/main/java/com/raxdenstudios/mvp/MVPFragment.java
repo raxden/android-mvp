@@ -1,5 +1,6 @@
 package com.raxdenstudios.mvp;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
@@ -21,6 +22,18 @@ public abstract class MVPFragment<TPresenter extends IPresenter> extends Fragmen
         super.onSaveInstanceState(outState);
         if (mPresenter != null) {
             mPresenter.onSave(outState);
+        }
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        if (mPresenter == null) {
+            mPresenter = initializePresenter(activity);
+        }
+        if (mPresenter != null) {
+            mPresenter.onTakeView(this);
         }
     }
 

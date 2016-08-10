@@ -1,5 +1,6 @@
 package com.raxdenstudios.mvp;
 
+import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.os.Bundle;
@@ -23,53 +24,75 @@ public abstract class MVPFragmentDialog<TPresenter extends IPresenter> extends D
     }
 
     @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        if (mPresenter == null) {
+            mPresenter = initializePresenter(activity);
+        }
+        if (mPresenter != null) {
+            mPresenter.onTakeView(this);
+        }
+    }
+
+    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
 
         if (mPresenter == null) {
             mPresenter = initializePresenter(context);
         }
-        if (mPresenter == null) {
-            throw new ClassCastException(this.getClass().toString() + " must initialize Presenter" +
-                    " override initializePresenter method to init Presenter.");
+        if (mPresenter != null) {
+            mPresenter.onTakeView(this);
         }
-        mPresenter.onTakeView(this);
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPresenter.onCreate(savedInstanceState);
+        if (mPresenter != null) {
+            mPresenter.onCreate(savedInstanceState);
+        }
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mPresenter.onViewLoaded();
+        if (mPresenter != null) {
+            mPresenter.onViewLoaded();
+        }
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        mPresenter.onResume();
+        if (mPresenter != null) {
+            mPresenter.onResume();
+        }
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        mPresenter.onPause();
+        if (mPresenter != null) {
+            mPresenter.onPause();
+        }
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        mPresenter.onDropView();
+        if (mPresenter != null) {
+            mPresenter.onDropView();
+        }
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mPresenter.onDestroy();
+        if (mPresenter != null) {
+            mPresenter.onDestroy();
+        }
     }
 
     /**
