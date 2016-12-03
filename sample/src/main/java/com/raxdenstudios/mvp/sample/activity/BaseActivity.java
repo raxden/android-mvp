@@ -1,4 +1,4 @@
-package com.raxdenstudios.mvp.sample;
+package com.raxdenstudios.mvp.sample.activity;
 
 import com.raxdenstudios.mvp.MVPActivity;
 import com.raxdenstudios.mvp.presenter.IPresenter;
