@@ -6,7 +6,7 @@ import android.content.Context;
  * Created by Raxden on 03/12/2016.
  */
 
-public class MainFragmentDialog extends BaseFragmentDialog<MainFragmentDialogPresenter> {
+public class MainDialogFragment extends BaseDialogFragment<MainFragmentDialogPresenter> {
 
     @Override
     public MainFragmentDialogPresenter initializePresenter(Context context) {

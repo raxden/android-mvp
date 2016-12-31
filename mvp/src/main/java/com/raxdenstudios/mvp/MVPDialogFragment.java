@@ -12,7 +12,7 @@ import com.raxdenstudios.mvp.view.IView;
 /**
  * Created by Raxden on 04/07/2016.
  */
-public abstract class MVPFragmentDialog<TPresenter extends IPresenter> extends DialogFragment
+public abstract class MVPDialogFragment<TPresenter extends IPresenter> extends DialogFragment
         implements IView {
 
     public TPresenter mPresenter;
