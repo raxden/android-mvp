@@ -1,0 +1,37 @@
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+ext {
+
+    // Sdk and tools
+    minSdkVersion = 16
+    targetSdkVersion = 25
+    compileSdkVersion = 25
+    buildToolsVersion = '25.0.0'
+
+    // Android dependencies
+    multidexVersion = '1.0.1'
+    supportLibraryVersion = '25.0.0'
+
+    // Testing
+    jUnitVersion = '4.12'
+    assertJVersion = '1.7.0'
+    robolectricVersion = '3.0'
+    mockitoVersion = '1.10.19'
+
+    libraryDependencies = [
+            compile    : [
+                    "com.android.support:appcompat-v7:${supportLibraryVersion}"
+            ],
+            testCompile: [
+                    "junit:junit:${jUnitVersion}",
+                    "org.assertj:assertj-core:${assertJVersion}",
+                    "org.mockito:mockito-core:${mockitoVersion}",
+                    "org.robolectric:robolectric:${robolectricVersion}"
+            ]
+    ]
+
+}

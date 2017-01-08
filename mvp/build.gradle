@@ -2,8 +2,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group = GROUP_NAME
-version = LIBRARY_VERSION
+group = "com.raxdenstudios"
+version = VERSION_NAME
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -12,18 +12,17 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-    }
-}
 
-repositories {
-    maven {url "https://clojars.org/repo/"}
+        consumerProguardFiles 'proguard-rules.pro'
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile deps.junit
 
-    compile deps.androidv7
+    compile libraryDependencies.compile
+    testCompile libraryDependencies.testCompile
 }
 
+apply from: '../buildSystem/commons.gradle'
 apply from: 'build_javadoc.gradle'
