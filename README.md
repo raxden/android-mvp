@@ -8,7 +8,7 @@ Android MVP is a base library to work with MVP pattern. Works on Android 4.1 (AP
 
 A lot of Android applications use only the Model-View architecture. Using this approach, we can quickly develop new features. We use Activity or Fragment as an object that implements logic, handles UI, and controls the flow between data objects and UI. One typical scenario for creating a new screen entails creating a new Activity class, adding a bunch of views, some AsyncTasks for background operations, tracking the state of Activity… before realizing that we’ve ended up with complex code where everything is connected to everything.
 
-https://github.com/raxden/AndroidMVP/blob/master/mvp.jpg?raw=true
+[![MVP_IMAGE](https://github.com/raxden/AndroidMVP/blob/master/mvp.jpg?raw=true)]
 
 ## Usage
 
