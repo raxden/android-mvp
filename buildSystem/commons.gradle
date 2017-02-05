@@ -1,4 +1,4 @@
-// v1.0.0
+// v1.0.2
 
 import java.util.regex.Pattern
 
@@ -61,6 +61,7 @@ def createUploadReleaseToGitTask(tag, message) {
 
 def createUpdateReadmeFileTask(version) {
     return tasks.create(name: 'updateReadmeFile') {
+        println(":updateReadmeFile - Updating readme file...")
         def readmeFile = file('../README.md')
         if (readmeFile.exists()) {
             readmeFile.delete()
@@ -72,27 +73,38 @@ def createUpdateReadmeFileTask(version) {
             readmeFile.createNewFile()
             readmeFile.write(content, "UTF-8")
         }
+        println(":updateReadmeFile - Readme file has been update")
     }
 }
 
 // gradlew uploadLibrary -Pmessage=messageToUpload
-task uploadLibrary << {
+task uploadLibraryWithMessage << {
     def message = "$message"
     createUploadLibraryToGitTask(message)
     tasks.uploadLibraryToGit.execute()
 }
 
-task uploadRelease << {
+task increaseBuildVersion << {
+    println(":increaseBuildVersion - Incrementing build version...")
     def versionName = increaseBuildVersion()
     createUpdateReadmeFileTask(versionName)
     tasks.updateReadmeFile.execute()
-    sleep(5000)
-    createUploadReleaseToGitTask(versionName, "Release " + versionName + " created")
+    println(":increaseBuildVersion - build version incremented to " + versionName)
+}
+
+task uploadLibrary << {
+    createUploadLibraryToGitTask("Upload library (" + version + ")")
+    tasks.uploadLibraryToGit.execute()
+}
+
+task uploadRelease << {
+    println(":uploadRelease - Upload release to repository...")
+    createUploadReleaseToGitTask(version, "Release " + version + " created")
     tasks.uploadReleaseToGit.execute()
+    println(":uploadRelease - Release uploaded: " + version)
 }
 
 String increaseBuildVersion() {
-    println(":increaseBuildVersion - Incrementing build version...")
     def versionName
     def gradlePropsFile = file('../gradle.properties')
     if (gradlePropsFile.isFile() && gradlePropsFile.canRead()) {
@@ -112,6 +124,5 @@ String increaseBuildVersion() {
     } else {
         throw new GradleException(":increaseBuildVersion - Could not read version.properties!")
     }
-    println(":increaseBuildVersion - build version incremented to " + versionName)
     return versionName
 }
