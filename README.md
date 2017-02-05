@@ -26,12 +26,15 @@ In an application with a good layered architecture, this model would only be the
 
 ### Fragment like view
 
-**1. Create your view interface that cointains the view behaviour**
+**1. Create your view interface that cointains the view behaviour, optinaly**
 
  ```java
- public interface MainFragmentView extends ILoaderView {
-     void userLogged();
- }
+public interface MainFragmentView {
+    void onLoading(String loadingMessage);
+    void onFinishLoading();
+    void onLoadingError(String title, String message);
+    void userLogged();
+}
 ```
 
 **2. Create your presenter interface that cointains the presenter behaviour **

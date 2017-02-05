@@ -1,12 +1,16 @@
 package com.raxdenstudios.mvp.sample.fragment;
 
-import com.raxdenstudios.mvp.view.ILoaderView;
-
 /**
  * Created by Raxden on 03/12/2016.
  */
 
-public interface MainFragmentView extends ILoaderView {
+public interface MainFragmentView {
+
+    void onLoading(String loadingMessage);
+
+    void onFinishLoading();
+
+    void onLoadingError(String title, String message);
 
     void userLogged();
 }

@@ -1,11 +1,15 @@
 package com.raxdenstudios.mvp.sample.activity;
 
-import com.raxdenstudios.mvp.view.ILoaderView;
-
 /**
  * Created by Raxden on 15/07/2016.
  */
-public interface MainActivityView extends ILoaderView {
+public interface MainActivityView {
+
+    void onLoading(String loadingMessage);
+
+    void onFinishLoading();
+
+    void onLoadingError(String title, String message);
 
     void userLogged();
 
