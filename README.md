@@ -65,7 +65,7 @@ public class MainFragment extends MVPFragment<MainFragmentPresenter> implements 
 }
 ```
 
-In order to use the library, there are 3 options:
+### In order to use the library, there are 3 options:
 
 **1. Gradle dependency**
 
