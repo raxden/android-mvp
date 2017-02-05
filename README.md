@@ -26,7 +26,7 @@ In an application with a good layered architecture, this model would only be the
 
 ### Fragment like view
 
-**1. Create your view interface that cointains the view behaviour **
+**1. Create your view interface that cointains the view behaviour**
 
  ```java
  public interface MainFragmentView extends ILoaderView {
