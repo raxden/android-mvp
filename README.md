@@ -1,7 +1,7 @@
 Android MVP
 ===========
 
-Android MVP is a base library to work with MVP pattern. Works on Android 4.1 (API level 16) and upwards.
+Android MVP is a base library to work with [Model-View-Presenter](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter) pattern. Works on Android 4.1 (API level 16) and upwards.
 
 [![Release](https://img.shields.io/github/tag/raxden/AndroidMVP.svg?label=Download)](https://jitpack.io/#raxden/AndroidMVP/)
 [![API](https://img.shields.io/badge/API-16%2B-green.svg?style=flat)](https://android-arsenal.com/api?level=16)
