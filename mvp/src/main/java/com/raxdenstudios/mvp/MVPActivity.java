@@ -34,6 +34,13 @@ public abstract class MVPActivity<TPresenter extends IPresenter> extends AppComp
         if (mPresenter != null) {
             mPresenter.onTakeView(this);
             mPresenter.onCreate(savedInstanceState);
+        }
+    }
+
+    @Override
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        if (mPresenter != null) {
             mPresenter.onViewLoaded();
         }
     }

@@ -22,6 +22,10 @@ public class Presenter<TView extends IView> implements IPresenter<TView> {
         mView = view;
     }
 
+    /**
+     * onCreate is called on every presenter’s creation.
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
@@ -37,16 +41,27 @@ public class Presenter<TView extends IView> implements IPresenter<TView> {
 
     }
 
+    /**
+     * onViewLoaded is called when view is prepared and loaded. In case of activities
+     * is calleb in onPostCreate and case of fragments in onActivityCreated
+     */
     @Override
     public void onViewLoaded() {
 
     }
 
+    /**
+     * onSave is called during View’s onSaveInstanceState to persist Presenter’s state as well.
+     * @param outState
+     */
     @Override
     public void onSave(Bundle outState) {
 
     }
 
+    /**
+     * onDestroy is called when user a View becomes destroyed not because of configuration change.
+     */
     @Override
     public void onDestroy() {
 
