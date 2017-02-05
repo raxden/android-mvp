@@ -5,12 +5,10 @@ package com.raxdenstudios.mvp.view;
  */
 public interface ILoaderView extends IView {
 
-    void onStartLoader();
+    void onLoading(String loadingMessage);
 
-    void onFinishLoader();
+    void onFinishLoading();
 
-    void onError(String message);
-
-    void onError(String message, Throwable throwable);
+    void onLoadingError(String title, String message);
 
 }

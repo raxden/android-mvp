@@ -20,7 +20,31 @@ The view, usually implemented by an Activity (it may be a Fragment, a View… de
 ### The model
 In an application with a good layered architecture, this model would only be the gateway to the domain layer or business logic. If we were using the Uncle Bob clean architecture , the model would probably be an interactor that implements a use case.
 
+
+
 ## Usage
+
+### Fragment like view
+
+**1. Create your view interface that cointains the view behaviour **
+
+ ```java
+ public interface MainFragmentView extends ILoaderView {
+     void userLogged();
+ }
+```
+
+**2. Create your presenter interface that cointains the presenter behaviour **
+**3. Create your presenter implementation interface that cointains the presenter behaviour **
+**1. Extends from MVPActivity<YourPresenter>**
+**1. Implements your view**
+**1. Gradle dependency**
+
+ ```xml
+ 
+ 
+ 
+```
 
 In order to use the library, there are 3 options:
 
