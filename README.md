@@ -26,7 +26,7 @@ In an application with a good layered architecture, this model would only be the
 
 ### Fragment like view
 
-**1. Create your view interface that cointains the view behaviour**
+**1. Create your view interface that cointains the view behaviour.**
 
  ```java
 public interface MainFragmentView {
@@ -34,7 +34,7 @@ public interface MainFragmentView {
 }
 ```
 
-**2. Create your presenter interface that cointains the presenter behaviour**
+**2. Create your presenter interface that cointains the presenter behaviour.**
 
  ```java
 public interface IMainFragmentPresenter {
@@ -42,7 +42,7 @@ public interface IMainFragmentPresenter {
 }
 ```
 
-**3. Create your presenter implementation**
+**3. Create your presenter implementation.**
 
  ```java
 public class MainFragmentPresenter extends Presenter<MainFragmentView> implements IMainFragmentPresenter {
@@ -53,7 +53,7 @@ public class MainFragmentPresenter extends Presenter<MainFragmentView> implement
 }
 ```
 
-**4. Create your view implementation, it must extends from MVPFragment**
+**4. Create your view implementation, it must extends from MVPFragment.**
 
  ```java
 public class MainFragment extends MVPFragment<MainFragmentPresenter> implements MainFragmentView {
