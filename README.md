@@ -30,23 +30,39 @@ In an application with a good layered architecture, this model would only be the
 
  ```java
 public interface MainFragmentView {
-    void onLoading(String loadingMessage);
-    void onFinishLoading();
-    void onLoadingError(String title, String message);
-    void userLogged();
+
 }
 ```
 
-**2. Create your presenter interface that cointains the presenter behaviour **
-**3. Create your presenter implementation interface that cointains the presenter behaviour **
-**1. Extends from MVPActivity<YourPresenter>**
-**1. Implements your view**
-**1. Gradle dependency**
+**2. Create your presenter interface that cointains the presenter behaviour**
 
- ```xml
- 
- 
- 
+ ```java
+public interface IMainFragmentPresenter {
+
+}
+```
+
+**3. Create your presenter implementation**
+
+ ```java
+public class MainFragmentPresenter extends Presenter<MainFragmentView> implements IMainFragmentPresenter {
+
+    public MainFragmentPresenter(Context context) {
+        super(context);
+    }
+}
+```
+
+**4. Create your view implementation, it must extends from MVPFragment**
+
+ ```java
+public class MainFragment extends MVPFragment<MainFragmentPresenter> implements MainFragmentView {
+
+    @Override
+    public MainFragmentPresenter initializePresenter(Context context) {
+        return new MainFragmentPresenter(context);
+    }
+}
 ```
 
 In order to use the library, there are 3 options:
