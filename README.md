@@ -9,7 +9,7 @@ Android MVP is a base library to work with [Model-View-Presenter](http://en.wiki
 
 A lot of Android applications use only the Model-View architecture. Using this approach, we can quickly develop new features. We use Activity or Fragment as an object that implements logic, handles UI, and controls the flow between data objects and UI. One typical scenario for creating a new screen entails creating a new Activity class, adding a bunch of views, some AsyncTasks for background operations, tracking the state of Activity… before realizing that we’ve ended up with complex code where everything is connected to everything.
 
-<div style="position:absolute; width:100%;">
+<div style="position:absolute; width:100%; height:100%">
 <img src="https://raw.githubusercontent.com/raxden/AndroidMVP/master/mvc_mvp.png"/>
 </div>
 
