@@ -9,10 +9,14 @@ Android MVP is a base library to work with [Model-View-Presenter](http://en.wiki
 
 A lot of Android applications use only the Model-View architecture. Using this approach, we can quickly develop new features. We use Activity or Fragment as an object that implements logic, handles UI, and controls the flow between data objects and UI. One typical scenario for creating a new screen entails creating a new Activity class, adding a bunch of views, some AsyncTasks for background operations, tracking the state of Activity… before realizing that we’ve ended up with complex code where everything is connected to everything.
 
-<div id="wrapper" style="text-align: center">    
 <img src="https://raw.githubusercontent.com/raxden/AndroidMVP/master/mvc_mvp.png"/>
-</div>
 
+### The presenter
+The presenter is responsible to act as the middle man between view and model. It retrieves data from the model and returns it formatted to the view. But unlike the typical MVC, it also decides what happens when you interact with the view.
+### The View
+The view, usually implemented by an Activity (it may be a Fragment, a View… depending on how the app is structured), will contain a reference to the presenter. The only thing that the view will do is calling a method from the presenter every time there is an interface action (a button click for example).
+### The model
+In an application with a good layered architecture, this model would only be the gateway to the domain layer or business logic. If we were using the Uncle Bob clean architecture , the model would probably be an interactor that implements a use case.
 
 ## Usage
 
