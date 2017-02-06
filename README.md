@@ -26,6 +26,8 @@ In an application with a good layered architecture, this model would only be the
 
 ### Fragment like view
 
+<img align="right" src="https://github.com/raxden/AndroidMVP/blob/master/mvp_fragment.png?raw=true" />
+
 **1. Create your view interface that cointains the view behaviour.**
 
  ```java
