@@ -20,7 +20,11 @@ The view, usually implemented by an Activity (it may be a Fragment, a View… de
 ### The model
 In an application with a good layered architecture, this model would only be the gateway to the domain layer or business logic. If we were using the Uncle Bob clean architecture , the model would probably be an interactor that implements a use case.
 
+## Lifecycle
 
+<p align="center">
+<img src="https://raw.githubusercontent.com/raxden/AndroidMVP/master/mvp_lifecyclet.png"/>
+</p>
 
 ## Usage
 
