@@ -42,7 +42,7 @@ public interface IMainFragmentPresenter {
 }
 ```
 
-**3. Create your presenter implementation.**
+**3. Create your presenter implementation, it must extends from Presenter.**
 
  ```java
 public class MainFragmentPresenter extends Presenter<MainFragmentView> implements IMainFragmentPresenter {
