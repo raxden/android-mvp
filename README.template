@@ -20,16 +20,22 @@ The view, usually implemented by an Activity (it may be a Fragment, a View… de
 ### The model
 In an application with a good layered architecture, this model would only be the gateway to the domain layer or business logic. If we were using the Uncle Bob clean architecture , the model would probably be an interactor that implements a use case.
 
+## Lifecycle
 
+<p align="center">
+<img src="https://raw.githubusercontent.com/raxden/AndroidMVP/master/mvp_lifecyclet.png"/>
+</p>
 
 ## Usage
 
 ### Fragment like view
 
+<img align="right" src="https://github.com/raxden/AndroidMVP/blob/master/mvp_fragment.png?raw=true" />
+
 **1. Create your view interface that cointains the view behaviour.**
 
  ```java
-public interface MainFragmentView {
+public interface YourFragmentView {
 
 }
 ```
@@ -37,7 +43,7 @@ public interface MainFragmentView {
 **2. Create your presenter interface that cointains the presenter behaviour.**
 
  ```java
-public interface IMainFragmentPresenter {
+public interface IYourFragmentPresenter {
 
 }
 ```
@@ -45,9 +51,9 @@ public interface IMainFragmentPresenter {
 **3. Create your presenter implementation, it must extends from Presenter.**
 
  ```java
-public class MainFragmentPresenter extends Presenter<MainFragmentView> implements IMainFragmentPresenter {
+public class YourFragmentPresenter extends Presenter<YourFragmentView> implements IYourFragmentPresenter {
 
-    public MainFragmentPresenter(Context context) {
+    public YourFragmentPresenter(Context context) {
         super(context);
     }
 }
@@ -56,11 +62,55 @@ public class MainFragmentPresenter extends Presenter<MainFragmentView> implement
 **4. Create your view implementation, it must extends from MVPFragment.**
 
  ```java
-public class MainFragment extends MVPFragment<MainFragmentPresenter> implements MainFragmentView {
+public class YourFragment extends MVPFragment<YourFragmentPresenter> implements YourFragmentView {
 
     @Override
-    public MainFragmentPresenter initializePresenter(Context context) {
-        return new MainFragmentPresenter(context);
+    public YourFragmentPresenter initializePresenter(Context context) {
+        return new YourFragmentPresenter(context);
+    }
+}
+```
+
+
+### Activity like view
+
+<img align="right" src="https://github.com/raxden/AndroidMVP/blob/master/mvp_activity.png?raw=true" />
+
+**1. Create your view interface that cointains the view behaviour.**
+
+ ```java
+public interface YourActivityView {
+
+}
+```
+
+**2. Create your presenter interface that cointains the presenter behaviour.**
+
+ ```java
+public interface IYourActivityPresenter {
+
+}
+```
+
+**3. Create your presenter implementation, it must extends from Presenter.**
+
+ ```java
+public class YourActivityPresenter extends Presenter<YourActivityView> implements IYourActivityPresenter {
+
+    public YourActivityPresenter(Context context) {
+        super(context);
+    }
+}
+```
+
+**4. Create your view implementation, it must extends from MVPFragment.**
+
+ ```java
+public class YourActivity extends MVPActivity<YourActivityPresenter> implements YourActivityView {
+
+    @Override
+    public YourActivityPresenter initializePresenter(Context context) {
+        return new YourActivityPresenter(context);
     }
 }
 ```
@@ -99,7 +149,7 @@ dependencies {
  - Open your **commandline-input** and navigate to your desired destination folder (where you want to put the library)
  - Use the command `git clone https://github.com/raxden/AndroidMVP.git` to download the full AndroidMVP repository to your computer (this includes the folder of the library project as well as the example project)
 
-### Documentation
+### Documentation 
 
 For a **detailed documentation**, please have a look at the [**Wiki**](https://github.com/raxden/AndroidMVP/wiki) or the [**Javadocs**](https://jitpack.io/com/github/raxden/AndroidMVP/{versionName}/javadoc/).
 
