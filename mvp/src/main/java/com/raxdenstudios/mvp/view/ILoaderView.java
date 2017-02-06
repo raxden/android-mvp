@@ -1,7 +1,8 @@
 package com.raxdenstudios.mvp.view;
 
 /**
- * Created by Raxden on 04/07/2016.
+ * View interface. This view is like IView but has some support methods for asynchronous data
+ * loading.
  */
 public interface ILoaderView extends IView {
 

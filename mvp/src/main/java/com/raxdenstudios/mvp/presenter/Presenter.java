@@ -6,7 +6,9 @@ import android.os.Bundle;
 import com.raxdenstudios.mvp.view.IView;
 
 /**
- * Created by Raxden on 24/06/2016.
+ * The presenter is responsible to act as the middle man between view and model. It retrieves data
+ * from the model and returns it formatted to the view. But unlike the typical MVC, it also decides
+ * what happens when you interact with the view. To access view, use mView.
  */
 public class Presenter<TView extends IView> implements IPresenter<TView> {
 
@@ -24,6 +26,7 @@ public class Presenter<TView extends IView> implements IPresenter<TView> {
 
     /**
      * onCreate is called on every presenter’s creation.
+     *
      * @param savedInstanceState
      */
     @Override
@@ -52,6 +55,7 @@ public class Presenter<TView extends IView> implements IPresenter<TView> {
 
     /**
      * onSave is called during View’s onSaveInstanceState to persist Presenter’s state as well.
+     *
      * @param outState
      */
     @Override
@@ -71,5 +75,6 @@ public class Presenter<TView extends IView> implements IPresenter<TView> {
     public void onDropView() {
         mView = null;
     }
+
 
 }

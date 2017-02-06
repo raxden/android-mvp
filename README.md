@@ -31,7 +31,7 @@ In an application with a good layered architecture, this model would only be the
 **1. Create your view interface that cointains the view behaviour.**
 
  ```java
-public interface MainFragmentView {
+public interface YourFragmentView {
 
 }
 ```
@@ -39,7 +39,7 @@ public interface MainFragmentView {
 **2. Create your presenter interface that cointains the presenter behaviour.**
 
  ```java
-public interface IMainFragmentPresenter {
+public interface IYourFragmentPresenter {
 
 }
 ```
@@ -47,9 +47,9 @@ public interface IMainFragmentPresenter {
 **3. Create your presenter implementation, it must extends from Presenter.**
 
  ```java
-public class MainFragmentPresenter extends Presenter<MainFragmentView> implements IMainFragmentPresenter {
+public class YourFragmentPresenter extends Presenter<YourFragmentView> implements IYourFragmentPresenter {
 
-    public MainFragmentPresenter(Context context) {
+    public YourFragmentPresenter(Context context) {
         super(context);
     }
 }
@@ -58,11 +58,11 @@ public class MainFragmentPresenter extends Presenter<MainFragmentView> implement
 **4. Create your view implementation, it must extends from MVPFragment.**
 
  ```java
-public class MainFragment extends MVPFragment<MainFragmentPresenter> implements MainFragmentView {
+public class YourFragment extends MVPFragment<YourFragmentPresenter> implements YourFragmentView {
 
     @Override
-    public MainFragmentPresenter initializePresenter(Context context) {
-        return new MainFragmentPresenter(context);
+    public YourFragmentPresenter initializePresenter(Context context) {
+        return new YourFragmentPresenter(context);
     }
 }
 ```
@@ -75,7 +75,7 @@ public class MainFragment extends MVPFragment<MainFragmentPresenter> implements 
 **1. Create your view interface that cointains the view behaviour.**
 
  ```java
-public interface MainActivityView {
+public interface YourActivityView {
 
 }
 ```
@@ -83,7 +83,7 @@ public interface MainActivityView {
 **2. Create your presenter interface that cointains the presenter behaviour.**
 
  ```java
-public interface IMainActivityPresenter {
+public interface IYourActivityPresenter {
 
 }
 ```
@@ -91,9 +91,9 @@ public interface IMainActivityPresenter {
 **3. Create your presenter implementation, it must extends from Presenter.**
 
  ```java
-public class MainActivityPresenter extends Presenter<MainActivityView> implements IMainActivityPresenter {
+public class YourActivityPresenter extends Presenter<YourActivityView> implements IYourActivityPresenter {
 
-    public MainActivityPresenter(Context context) {
+    public YourActivityPresenter(Context context) {
         super(context);
     }
 }
@@ -102,11 +102,11 @@ public class MainActivityPresenter extends Presenter<MainActivityView> implement
 **4. Create your view implementation, it must extends from MVPFragment.**
 
  ```java
-public class MainActivity extends MVPActivity<MainActivityPresenter> implements MainActivityView {
+public class YourActivity extends MVPActivity<YourActivityPresenter> implements YourActivityView {
 
     @Override
-    public MainActivityPresenter initializePresenter(Context context) {
-        return new MainActivityPresenter(context);
+    public YourActivityPresenter initializePresenter(Context context) {
+        return new YourActivityPresenter(context);
     }
 }
 ```

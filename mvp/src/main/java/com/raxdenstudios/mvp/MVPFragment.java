@@ -10,7 +10,19 @@ import com.raxdenstudios.mvp.presenter.IPresenter;
 import com.raxdenstudios.mvp.view.IView;
 
 /**
- * Created by Raxden on 24/06/2016.
+ * The view will contain a reference to the presenter. The only thing
+ * that the view will do is calling a method from the presenter every time there is an interface
+ * action (a button click for example).
+ *
+ * Lifecycle    MVPFragment             ->      Presenter
+ *              onSaveInstanceState     ->      onSave
+ *              onAttach                ->      onTakeView
+ *              onCreate                ->      onCreate
+ *              onActivityCreated       ->      onViewLoaded
+ *              onResume                ->      onResume
+ *              onPause                 ->      onPause
+ *              onDestroyView           ->      onDropView
+ *              onDestroy               ->      onDestroy
  */
 public abstract class MVPFragment<TPresenter extends IPresenter> extends Fragment
         implements IView {

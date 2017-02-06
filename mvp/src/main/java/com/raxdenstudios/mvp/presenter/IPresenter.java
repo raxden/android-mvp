@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.raxdenstudios.mvp.view.IView;
 
 /**
- * Created by Raxden on 24/06/2016.
+ * Presenter interface
  */
 public interface IPresenter<TView extends IView> {
 
