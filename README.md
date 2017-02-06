@@ -67,6 +67,50 @@ public class MainFragment extends MVPFragment<MainFragmentPresenter> implements 
 }
 ```
 
+
+### Activity like view
+
+<img align="right" src="https://github.com/raxden/AndroidMVP/blob/master/mvp_activity.png?raw=true" />
+
+**1. Create your view interface that cointains the view behaviour.**
+
+ ```java
+public interface MainActivityView {
+
+}
+```
+
+**2. Create your presenter interface that cointains the presenter behaviour.**
+
+ ```java
+public interface IMainActivityPresenter {
+
+}
+```
+
+**3. Create your presenter implementation, it must extends from Presenter.**
+
+ ```java
+public class MainActivityPresenter extends Presenter<MainActivityView> implements IMainActivityPresenter {
+
+    public MainActivityPresenter(Context context) {
+        super(context);
+    }
+}
+```
+
+**4. Create your view implementation, it must extends from MVPFragment.**
+
+ ```java
+public class MainActivity extends MVPActivity<MainActivityPresenter> implements MainActivityView {
+
+    @Override
+    public MainActivityPresenter initializePresenter(Context context) {
+        return new MainActivityPresenter(context);
+    }
+}
+```
+
 ### In order to use the library, there are 3 options:
 
 **1. Gradle dependency**
