@@ -40,7 +40,7 @@ The presenter lifecycle is described below.
 
 <img align="right" src="https://github.com/raxden/AndroidMVP/blob/master/mvp_fragment.png?raw=true" />
 
-**1. Create your view interface that cointains the view behaviour.**
+**1. Create your view contract that cointains the view behaviour.**
 
  ```java
 public interface YourFragmentView {
@@ -48,7 +48,7 @@ public interface YourFragmentView {
 }
 ```
 
-**2. Create your presenter interface that cointains the presenter behaviour.**
+**2. Create your presenter contract that cointains the presenter behaviour.**
 
  ```java
 public interface IYourFragmentPresenter {
@@ -56,7 +56,7 @@ public interface IYourFragmentPresenter {
 }
 ```
 
-**3. Create your presenter implementation, it must extends from Presenter.**
+**3. Create your presenter implementation, it must extends from Presenter to extend its avantages and implements your contract presenter.**
 
  ```java
 public class YourFragmentPresenter extends Presenter<YourFragmentView> implements IYourFragmentPresenter {
@@ -67,7 +67,7 @@ public class YourFragmentPresenter extends Presenter<YourFragmentView> implement
 }
 ```
 
-**4. Create your view implementation, it must extends from MVPFragment.**
+**4. Create your view implementation, it must extends from MVPFragment and implements your contract view.**
 
  ```java
 public class YourFragment extends MVPFragment<YourFragmentPresenter> implements YourFragmentView {
