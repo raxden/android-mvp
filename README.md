@@ -22,7 +22,7 @@ The view, usually implemented by an Activity (it may be a Fragment, a View… de
 #### The model
 In an application with a good layered architecture, this model would only be the gateway to the domain layer or business logic. If we were using the Uncle Bob clean architecture , the model would probably be an interactor that implements a use case.
 
-Everything is easier to understand when you have examples. So here’s one on how to develop apps using MVP.
+Everything is easier to understand when you have examples. So here’s one on how to develop apps using the AndroidMVP.
 
 https://github.com/raxden/AndroidMVP/tree/master/sample
 
@@ -40,7 +40,7 @@ The presenter lifecycle is described below.
 
 <img align="right" src="https://github.com/raxden/AndroidMVP/blob/master/mvp_fragment.png?raw=true" />
 
-**1. Create your view contract that cointains the view behaviour.**
+**1. Create your view contract that contains the view behaviour.**
 
  ```java
 public interface YourFragmentView {
@@ -79,49 +79,9 @@ public class YourFragment extends MVPFragment<YourFragmentPresenter> implements 
 }
 ```
 
+Why use a Fragment as a view and not an Activity? If we use a fragment like view, we can separate the view of the controller. In this way the activity will only contain the logic of the controller and the fragment the logic of the view. Then you will see that code is much easier to understand, scalable, and that its degree of complexity does not rise in step with the expansion of the application itself.
 
-### Activity like view
-
-<img align="right" src="https://github.com/raxden/AndroidMVP/blob/master/mvp_activity.png?raw=true" />
-
-**1. Create your view interface that cointains the view behaviour.**
-
- ```java
-public interface YourActivityView {
-
-}
-```
-
-**2. Create your presenter interface that cointains the presenter behaviour.**
-
- ```java
-public interface IYourActivityPresenter {
-
-}
-```
-
-**3. Create your presenter implementation, it must extends from Presenter.**
-
- ```java
-public class YourActivityPresenter extends Presenter<YourActivityView> implements IYourActivityPresenter {
-
-    public YourActivityPresenter(Context context) {
-        super(context);
-    }
-}
-```
-
-**4. Create your view implementation, it must extends from MVPFragment.**
-
- ```java
-public class YourActivity extends MVPActivity<YourActivityPresenter> implements YourActivityView {
-
-    @Override
-    public YourActivityPresenter initializePresenter(Context context) {
-        return new YourActivityPresenter(context);
-    }
-}
-```
+Porque usar un Fragment como vista y no una actividad? Si lo hicieramos tendríamos una actividad con funciones de controlador y vista pero no así ocurre cuando aplicamos el patrón MVP a un fragment, ya que de esta manera tenemos separadas las funcionaes de vista en el fragment y las de controlador en la actividad.
 
 ### In order to use the library, there are 3 options:
 

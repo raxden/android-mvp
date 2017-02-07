@@ -39,6 +39,7 @@ public class LoginActivity extends AppCompatActivity implements LoginFragment.Ma
                     }
                 });
         builder.show();
+        // Go to another activity that requires a user logged.
     }
 
     @Override
