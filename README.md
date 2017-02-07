@@ -25,7 +25,7 @@ In an application with a good layered architecture, this model would only be the
 The presenter lifecycle is described below.
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/raxden/AndroidMVP/master/mvp_lifecyclet.png"/>
+<img src="https://raw.githubusercontent.com/raxden/AndroidMVP/master/mvp_lifecycle.png"/>
 </p>
 
 ## Usage
