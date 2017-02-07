@@ -13,14 +13,20 @@ A lot of Android applications use only the Model-View architecture. Using this a
 <img src="https://raw.githubusercontent.com/raxden/AndroidMVP/master/mvc_mvp.png"/>
 </p>
 
-### The presenter
+The Model-View-Presenter (MVP) architecture comprises:
+
+#### The presenter
 The presenter is responsible to act as the middle man between view and model. It retrieves data from the model and returns it formatted to the view. But unlike the typical MVC, it also decides what happens when you interact with the view.
-### The View
+#### The View
 The view, usually implemented by an Activity (it may be a Fragment, a View… depending on how the app is structured), will contain a reference to the presenter. The only thing that the view will do is calling a method from the presenter every time there is an interface action (a button click for example).
-### The model
+#### The model
 In an application with a good layered architecture, this model would only be the gateway to the domain layer or business logic. If we were using the Uncle Bob clean architecture , the model would probably be an interactor that implements a use case.
 
-## Lifecycle
+Everything is easier to understand when you have examples. So here’s one on how to develop apps using the AndroidMVP.
+
+https://github.com/raxden/AndroidMVP/tree/master/sample
+
+## Presenter lifecycle
 
 The presenter lifecycle is described below.
 
@@ -30,92 +36,98 @@ The presenter lifecycle is described below.
 
 ## Usage
 
-### Fragment like view
+### Best aproach: Fragment like view
 
 <img align="right" src="https://github.com/raxden/AndroidMVP/blob/master/mvp_fragment.png?raw=true" />
 
-**1. Create your view interface that cointains the view behaviour.**
+**1. Create your view contract**
+
+Every View interface extends an empty interface, in this case IView (no methods declared). LoginFragmentView should be able to show progress bar as the user are fetched, display the user data, or an error message when fetching fails.
 
  ```java
-public interface YourFragmentView {
-
+public interface LoginFragmentView extends IView {
+    void showLoading(String loadingMessage);
+    void hideLoading();
+    void showError(String title, String message);
+    void userLogged();
 }
 ```
 
-**2. Create your presenter interface that cointains the presenter behaviour.**
+**2. Create your presenter contract that contains the presenter behaviour.**
 
  ```java
-public interface IYourFragmentPresenter {
-
+public interface ILoginFragmentPresenter {
+    void login(String email, String password);
 }
 ```
 
-**3. Create your presenter implementation, it must extends from Presenter.**
+**3. Create your presenter implementation, it must extends from Presenter to extend the AndroidMVP advantages and implements your contract presenter.**
 
  ```java
-public class YourFragmentPresenter extends Presenter<YourFragmentView> implements IYourFragmentPresenter {
+public class LoginFragmentPresenter extends Presenter<LoginFragmentView> implements ILoginFragmentPresenter {
 
     public YourFragmentPresenter(Context context) {
         super(context);
     }
+
+    @Override
+    public void login(String email, String password) {
+        if (validateCredentials(email, password)) {
+            retrieveUserData(email, password);
+        }
+    }
+
+    private void retrieveUserData(final String email, final String password) {
+        mView.showLoading("loading...");
+
+        { // this code simulate asynctask usecase...
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                public void run() {
+                    if (mView != null) {
+                        mView.userLogged();
+                        mView.hideLoading();
+                    }
+                }
+            }, 2000);
+        }
+    }
 }
 ```
 
-**4. Create your view implementation, it must extends from MVPFragment.**
+**4. Create your view implementation, it must extends from MVPFragment and implements your contract view.**
 
  ```java
-public class YourFragment extends MVPFragment<YourFragmentPresenter> implements YourFragmentView {
+public class LoginFragment extends MVPFragment<LoginFragmentPresenter> implements LoginFragmentView {
 
     @Override
     public YourFragmentPresenter initializePresenter(Context context) {
         return new YourFragmentPresenter(context);
     }
-}
-```
-
-
-### Activity like view
-
-<img align="right" src="https://github.com/raxden/AndroidMVP/blob/master/mvp_activity.png?raw=true" />
-
-**1. Create your view interface that cointains the view behaviour.**
-
- ```java
-public interface YourActivityView {
-
-}
-```
-
-**2. Create your presenter interface that cointains the presenter behaviour.**
-
- ```java
-public interface IYourActivityPresenter {
-
-}
-```
-
-**3. Create your presenter implementation, it must extends from Presenter.**
-
- ```java
-public class YourActivityPresenter extends Presenter<YourActivityView> implements IYourActivityPresenter {
-
-    public YourActivityPresenter(Context context) {
-        super(context);
-    }
-}
-```
-
-**4. Create your view implementation, it must extends from MVPFragment.**
-
- ```java
-public class YourActivity extends MVPActivity<YourActivityPresenter> implements YourActivityView {
 
     @Override
-    public YourActivityPresenter initializePresenter(Context context) {
-        return new YourActivityPresenter(context);
+    public void userLogged() {
+        // user logged!
+    }
+
+    @Override
+    public void showLoading(String loadingMessage) {
+        // show loading progress
+    }
+
+    @Override
+    public void hideLoading() {
+        // hide loading progress
+    }
+
+    @Override
+    public void showError(String title, String message) {
+        // show error message
     }
 }
 ```
+
+Why use a Fragment as a view and not an Activity? If we use a fragment like view, we can separate the view of the controller. In this way the activity will only contain the logic of the controller and the fragment the logic of the view. Then you will see that code is much easier to understand, scalable, and that its degree of complexity does not rise in step with the expansion of the application itself.
 
 ### In order to use the library, there are 3 options:
 
@@ -151,7 +163,7 @@ dependencies {
  - Open your **commandline-input** and navigate to your desired destination folder (where you want to put the library)
  - Use the command `git clone https://github.com/raxden/AndroidMVP.git` to download the full AndroidMVP repository to your computer (this includes the folder of the library project as well as the example project)
 
-### Documentation 
+### Documentation
 
 For a **detailed documentation**, please have a look at the [**Wiki**](https://github.com/raxden/AndroidMVP/wiki) or the [**Javadocs**](https://jitpack.io/com/github/raxden/AndroidMVP/{versionName}/javadoc/).
 
