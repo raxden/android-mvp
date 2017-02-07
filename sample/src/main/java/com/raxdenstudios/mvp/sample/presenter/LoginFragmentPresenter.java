@@ -35,11 +35,6 @@ public class LoginFragmentPresenter extends Presenter<LoginFragmentView> impleme
     }
 
     @Override
-    public void onViewLoaded() {
-        super.onViewLoaded();
-    }
-
-    @Override
     public void login(String email, String password) {
         if (validateCredentials(email, password)) {
             retrieveUserData(email, password);

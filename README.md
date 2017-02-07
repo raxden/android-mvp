@@ -40,7 +40,9 @@ The presenter lifecycle is described below.
 
 <img align="right" src="https://github.com/raxden/AndroidMVP/blob/master/mvp_fragment.png?raw=true" />
 
-**1. Create your view contract that contains the view behaviour.**
+**1. Create your view contract**
+
+Every View interface extends an empty interface, in this case IView (no methods declared). LoginFragmentView should be able to show progress bar as the user are fetched, display the user data, or an error message when fetching fails.
 
  ```java
 public interface LoginFragmentView extends IView {
@@ -51,21 +53,44 @@ public interface LoginFragmentView extends IView {
 }
 ```
 
-**2. Create your presenter contract that cointains the presenter behaviour.**
+**2. Create your presenter contract that contains the presenter behaviour.**
 
  ```java
-public interface IYourFragmentPresenter {
-
+public interface ILoginFragmentPresenter {
+    void login(String email, String password);
 }
 ```
 
-**3. Create your presenter implementation, it must extends from Presenter to extend its avantages and implements your contract presenter.**
+**3. Create your presenter implementation, it must extends from Presenter to extend the AndroidMVP advantages and implements your contract presenter.**
 
  ```java
-public class YourFragmentPresenter extends Presenter<YourFragmentView> implements IYourFragmentPresenter {
+public class LoginFragmentPresenter extends Presenter<LoginFragmentView> implements ILoginFragmentPresenter {
 
     public YourFragmentPresenter(Context context) {
         super(context);
+    }
+    
+    @Override
+    public void login(String email, String password) {
+        if (validateCredentials(email, password)) {
+            retrieveUserData(email, password);
+        }
+    }
+    
+    private void retrieveUserData(final String email, final String password) {
+        mView.showLoading("loading...");
+
+        { // this code simulate asynctask usecase...
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                public void run() {
+                    if (mView != null) {
+                        mView.userLogged();
+                        mView.hideLoading();
+                    }
+                }
+            }, 2000);
+        }
     }
 }
 ```
@@ -78,6 +103,26 @@ public class YourFragment extends MVPFragment<YourFragmentPresenter> implements 
     @Override
     public YourFragmentPresenter initializePresenter(Context context) {
         return new YourFragmentPresenter(context);
+    }
+    
+    @Override
+    public void userLogged() {
+        // user logged!
+    }
+
+    @Override
+    public void showLoading(String loadingMessage) {
+        // show loading progress
+    }
+
+    @Override
+    public void hideLoading() {
+        // hide loading progress
+    }
+
+    @Override
+    public void showError(String title, String message) {
+        // show error message
     }
 }
 ```
