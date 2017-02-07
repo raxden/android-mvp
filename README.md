@@ -43,8 +43,11 @@ The presenter lifecycle is described below.
 **1. Create your view contract that contains the view behaviour.**
 
  ```java
-public interface YourFragmentView {
-
+public interface LoginFragmentView extends IView {
+    void showLoading(String loadingMessage);
+    void hideLoading();
+    void showError(String title, String message);
+    void userLogged();
 }
 ```
 
