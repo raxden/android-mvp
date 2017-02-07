@@ -98,7 +98,7 @@ public class LoginFragmentPresenter extends Presenter<LoginFragmentView> impleme
 **4. Create your view implementation, it must extends from MVPFragment and implements your contract view.**
 
  ```java
-public class YourFragment extends MVPFragment<YourFragmentPresenter> implements YourFragmentView {
+public class LoginFragment extends MVPFragment<LoginFragmentPresenter> implements LoginFragmentView {
 
     @Override
     public YourFragmentPresenter initializePresenter(Context context) {
