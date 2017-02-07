@@ -81,8 +81,6 @@ public class YourFragment extends MVPFragment<YourFragmentPresenter> implements 
 
 Why use a Fragment as a view and not an Activity? If we use a fragment like view, we can separate the view of the controller. In this way the activity will only contain the logic of the controller and the fragment the logic of the view. Then you will see that code is much easier to understand, scalable, and that its degree of complexity does not rise in step with the expansion of the application itself.
 
-Porque usar un Fragment como vista y no una actividad? Si lo hicieramos tendríamos una actividad con funciones de controlador y vista pero no así ocurre cuando aplicamos el patrón MVP a un fragment, ya que de esta manera tenemos separadas las funcionaes de vista en el fragment y las de controlador en la actividad.
-
 ### In order to use the library, there are 3 options:
 
 **1. Gradle dependency**
