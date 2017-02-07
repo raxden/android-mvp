@@ -26,7 +26,7 @@ Everything is easier to understand when you have examples. So here’s one on ho
 
 https://github.com/raxden/AndroidMVP/tree/master/sample
 
-## Lifecycle
+## Presenter lifecycle
 
 The presenter lifecycle is described below.
 
