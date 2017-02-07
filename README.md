@@ -15,11 +15,11 @@ A lot of Android applications use only the Model-View architecture. Using this a
 
 The Model-View-Presenter (MVP) architecture comprises:
 
-### The presenter
+#### The presenter
 The presenter is responsible to act as the middle man between view and model. It retrieves data from the model and returns it formatted to the view. But unlike the typical MVC, it also decides what happens when you interact with the view.
-### The View
+#### The View
 The view, usually implemented by an Activity (it may be a Fragment, a View… depending on how the app is structured), will contain a reference to the presenter. The only thing that the view will do is calling a method from the presenter every time there is an interface action (a button click for example).
-### The model
+#### The model
 In an application with a good layered architecture, this model would only be the gateway to the domain layer or business logic. If we were using the Uncle Bob clean architecture , the model would probably be an interactor that implements a use case.
 
 ## Lifecycle
