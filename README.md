@@ -22,6 +22,8 @@ The view, usually implemented by an Activity (it may be a Fragment, a View… de
 #### The model
 In an application with a good layered architecture, this model would only be the gateway to the domain layer or business logic. If we were using the Uncle Bob clean architecture , the model would probably be an interactor that implements a use case.
 
+Everything is easier to understand when you have examples. So here’s one on how to develop apps using MVP.
+
 ## Lifecycle
 
 The presenter lifecycle is described below.
