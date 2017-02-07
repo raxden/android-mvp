@@ -41,6 +41,7 @@ The presenter lifecycle is described below.
 <img align="right" src="https://github.com/raxden/AndroidMVP/blob/master/mvp_fragment.png?raw=true" />
 
 **1. Create your view contract**
+
 Every View interface extends an empty interface, in this case IView (no methods declared). LoginFragmentView should be able to show progress bar as the user are fetched, display the user data, or an error message when fetching fails.
 
  ```java
