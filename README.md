@@ -69,14 +69,14 @@ public class LoginFragmentPresenter extends Presenter<LoginFragmentView> impleme
     public YourFragmentPresenter(Context context) {
         super(context);
     }
-    
+
     @Override
     public void login(String email, String password) {
         if (validateCredentials(email, password)) {
             retrieveUserData(email, password);
         }
     }
-    
+
     private void retrieveUserData(final String email, final String password) {
         mView.showLoading("loading...");
 
@@ -104,7 +104,7 @@ public class LoginFragment extends MVPFragment<LoginFragmentPresenter> implement
     public YourFragmentPresenter initializePresenter(Context context) {
         return new YourFragmentPresenter(context);
     }
-    
+
     @Override
     public void userLogged() {
         // user logged!
@@ -140,7 +140,7 @@ repositories {
 }
 
 dependencies {
-	    compile 'com.github.raxden:AndroidMVP:3.0.2@aar'
+	    compile 'com.github.raxden:AndroidMVP:3.0.3@aar'
 }
 ```
 
@@ -155,7 +155,7 @@ dependencies {
 <dependency>
 	    <groupId>com.github.raxden</groupId>
 	    <artifactId>AndroidMVP</artifactId>
-	    <version>3.0.2</version>
+	    <version>3.0.3</version>
 </dependency>
 ```
 
@@ -163,9 +163,9 @@ dependencies {
  - Open your **commandline-input** and navigate to your desired destination folder (where you want to put the library)
  - Use the command `git clone https://github.com/raxden/AndroidMVP.git` to download the full AndroidMVP repository to your computer (this includes the folder of the library project as well as the example project)
 
-### Documentation 
+### Documentation
 
-For a **detailed documentation**, please have a look at the [**Wiki**](https://github.com/raxden/AndroidMVP/wiki) or the [**Javadocs**](https://jitpack.io/com/github/raxden/AndroidMVP/3.0.2/javadoc/).
+For a **detailed documentation**, please have a look at the [**Wiki**](https://github.com/raxden/AndroidMVP/wiki) or the [**Javadocs**](https://jitpack.io/com/github/raxden/AndroidMVP/3.0.3/javadoc/).
 
 ## LICENSE
 
