@@ -4,28 +4,32 @@ import android.content.Context;
 import android.os.Handler;
 
 import com.raxdenstudios.mvp.presenter.Presenter;
-import com.raxdenstudios.mvp.sample.view.MainFragmentView;
+import com.raxdenstudios.mvp.sample.view.LoginFragmentView;
 
-public class MainFragmentPresenter extends Presenter<MainFragmentView> implements IMainFragmentPresenter {
+public class LoginFragmentPresenter extends Presenter<LoginFragmentView> implements ILoginFragmentPresenter {
 
-    public MainFragmentPresenter(Context context) {
+    public LoginFragmentPresenter(Context context) {
         super(context);
     }
 
     @Override
     public void login(String email, String password) {
         if (validateCredentials(email, password)) {
-            mView.showLoading("loading...");
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                public void run() {
-                    if (mView != null) {
-                        mView.userLogged();
-                        mView.hideLoading();
-                    }
-                }
-            }, 2000);
+            retrieveUserData(email, password);
         }
+    }
+
+    private void retrieveUserData(String email, String password) {
+        mView.showLoading("loading...");
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                if (mView != null) {
+                    mView.userLogged();
+                    mView.hideLoading();
+                }
+            }
+        }, 2000);
     }
 
     private boolean validateCredentials(String email, String password) {

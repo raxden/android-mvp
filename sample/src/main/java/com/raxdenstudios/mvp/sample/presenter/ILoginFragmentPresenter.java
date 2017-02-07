@@ -1,6 +1,6 @@
 package com.raxdenstudios.mvp.sample.presenter;
 
-public interface IMainFragmentPresenter {
+public interface ILoginFragmentPresenter {
 
     void login(String email, String password);
 

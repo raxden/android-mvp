@@ -12,9 +12,9 @@ import android.widget.EditText;
 
 import com.raxdenstudios.mvp.MVPFragment;
 import com.raxdenstudios.mvp.sample.R;
-import com.raxdenstudios.mvp.sample.presenter.MainFragmentPresenter;
+import com.raxdenstudios.mvp.sample.presenter.LoginFragmentPresenter;
 
-public class MainFragment extends MVPFragment<MainFragmentPresenter> implements MainFragmentView {
+public class LoginFragment extends MVPFragment<LoginFragmentPresenter> implements LoginFragmentView {
 
     private MainFragmentCallback mCallback;
     private EditText mEmailEditText;
@@ -26,8 +26,8 @@ public class MainFragment extends MVPFragment<MainFragmentPresenter> implements 
         void onError(String title, String message);
     }
 
-    public static MainFragment newInstance(Bundle bundle) {
-        MainFragment fragment = new MainFragment();
+    public static LoginFragment newInstance(Bundle bundle) {
+        LoginFragment fragment = new LoginFragment();
         bundle = bundle == null ? new Bundle() : bundle;
         fragment.setArguments(bundle);
         return fragment;
@@ -45,7 +45,7 @@ public class MainFragment extends MVPFragment<MainFragmentPresenter> implements 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.main_fragment, null);
+        return inflater.inflate(R.layout.login_fragment, null);
     }
 
     @Override
@@ -66,8 +66,8 @@ public class MainFragment extends MVPFragment<MainFragmentPresenter> implements 
     }
 
     @Override
-    public MainFragmentPresenter initializePresenter(Context context) {
-        return new MainFragmentPresenter(context);
+    public LoginFragmentPresenter initializePresenter(Context context) {
+        return new LoginFragmentPresenter(context);
     }
 
     @Override

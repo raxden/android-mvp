@@ -7,32 +7,32 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 
 import com.raxdenstudios.mvp.sample.R;
-import com.raxdenstudios.mvp.sample.view.MainFragment;
+import com.raxdenstudios.mvp.sample.view.LoginFragment;
 
-public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentCallback {
+public class LoginActivity extends AppCompatActivity implements LoginFragment.MainFragmentCallback {
 
-    private MainFragment mMainFragment;
+    private LoginFragment mMainFragment;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_activity);
+        setContentView(R.layout.login_activity);
 
         if (savedInstanceState == null) {
-            mMainFragment = MainFragment.newInstance(getIntent().getExtras());
+            mMainFragment = LoginFragment.newInstance(getIntent().getExtras());
             getFragmentManager()
                     .beginTransaction()
-                    .add(R.id.content, mMainFragment, MainFragment.class.getSimpleName())
+                    .add(R.id.content, mMainFragment, LoginFragment.class.getSimpleName())
                     .commit();
         } else {
-            mMainFragment = (MainFragment) getFragmentManager().findFragmentById(R.id.content);
+            mMainFragment = (LoginFragment) getFragmentManager().findFragmentById(R.id.content);
         }
     }
 
     @Override
     public void onUserLooged() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                .setTitle("User logged")
+                .setTitle("UserModel logged")
                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();

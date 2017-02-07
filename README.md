@@ -24,6 +24,8 @@ In an application with a good layered architecture, this model would only be the
 
 Everything is easier to understand when you have examples. So here’s one on how to develop apps using MVP.
 
+https://github.com/raxden/AndroidMVP/tree/master/sample
+
 ## Lifecycle
 
 The presenter lifecycle is described below.
