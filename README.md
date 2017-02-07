@@ -36,7 +36,7 @@ The presenter lifecycle is described below.
 
 ## Usage
 
-### Fragment like view
+### Best aproach: Fragment like view
 
 <img align="right" src="https://github.com/raxden/AndroidMVP/blob/master/mvp_fragment.png?raw=true" />
 
