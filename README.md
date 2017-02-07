@@ -13,6 +13,8 @@ A lot of Android applications use only the Model-View architecture. Using this a
 <img src="https://raw.githubusercontent.com/raxden/AndroidMVP/master/mvc_mvp.png"/>
 </p>
 
+The Model-View-Presenter (MVP) architecture comprises:
+
 ### The presenter
 The presenter is responsible to act as the middle man between view and model. It retrieves data from the model and returns it formatted to the view. But unlike the typical MVC, it also decides what happens when you interact with the view.
 ### The View
