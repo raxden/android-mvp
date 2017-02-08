@@ -42,7 +42,7 @@ The presenter lifecycle is described below.
 
 **1. Create your view contract**
 
-Every View interface extends an empty interface, in this case IView (no methods declared). LoginFragmentView should be able to show progress bar as the user are fetched, display the user data, or an error message when fetching fails.
+Every View interface extends an empty interface, in this case IView (no methods declared). ILoginFragmentView should be able to show progress bar as the user are fetched, display the user data, or an error message when fetching fails.
 
  ```java
 public interface ILoginFragmentView extends IView {
@@ -55,7 +55,7 @@ public interface ILoginFragmentView extends IView {
 
 **2. Create your presenter contract.**
 
-ILoginFragmentPresnter
+ILoginFragmentPresnter 
 
  ```java
 public interface ILoginFragmentPresenter {
