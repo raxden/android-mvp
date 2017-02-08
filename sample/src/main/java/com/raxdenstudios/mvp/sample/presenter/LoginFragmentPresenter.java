@@ -6,9 +6,9 @@ import android.os.Handler;
 
 import com.raxdenstudios.mvp.model.UserModel;
 import com.raxdenstudios.mvp.presenter.Presenter;
-import com.raxdenstudios.mvp.sample.view.LoginFragmentView;
+import com.raxdenstudios.mvp.sample.view.ILoginFragmentView;
 
-public class LoginFragmentPresenter extends Presenter<LoginFragmentView> implements ILoginFragmentPresenter {
+public class LoginFragmentPresenter extends Presenter<ILoginFragmentView> implements ILoginFragmentPresenter {
 
     private UserModel mUserModel;
 

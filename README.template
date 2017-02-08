@@ -45,7 +45,7 @@ The presenter lifecycle is described below.
 Every View interface extends an empty interface, in this case IView (no methods declared). LoginFragmentView should be able to show progress bar as the user are fetched, display the user data, or an error message when fetching fails.
 
  ```java
-public interface LoginFragmentView extends IView {
+public interface ILoginFragmentView extends IView {
     void showLoading(String loadingMessage);
     void hideLoading();
     void showError(String title, String message);
@@ -53,7 +53,9 @@ public interface LoginFragmentView extends IView {
 }
 ```
 
-**2. Create your presenter contract that contains the presenter behaviour.**
+**2. Create your presenter contract.**
+
+ILoginFragmentPresnter
 
  ```java
 public interface ILoginFragmentPresenter {
@@ -64,7 +66,7 @@ public interface ILoginFragmentPresenter {
 **3. Create your presenter implementation, it must extends from Presenter to extend the AndroidMVP advantages and implements your contract presenter.**
 
  ```java
-public class LoginFragmentPresenter extends Presenter<LoginFragmentView> implements ILoginFragmentPresenter {
+public class LoginFragmentPresenter extends Presenter<ILoginFragmentView> implements ILoginFragmentPresenter {
 
     public YourFragmentPresenter(Context context) {
         super(context);
@@ -98,7 +100,7 @@ public class LoginFragmentPresenter extends Presenter<LoginFragmentView> impleme
 **4. Create your view implementation, it must extends from MVPFragment and implements your contract view.**
 
  ```java
-public class LoginFragment extends MVPFragment<LoginFragmentPresenter> implements LoginFragmentView {
+public class LoginFragment extends MVPFragment<LoginFragmentPresenter> implements ILoginFragmentView {
 
     @Override
     public YourFragmentPresenter initializePresenter(Context context) {

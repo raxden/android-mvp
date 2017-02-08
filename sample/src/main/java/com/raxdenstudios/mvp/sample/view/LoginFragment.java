@@ -14,7 +14,7 @@ import com.raxdenstudios.mvp.MVPFragment;
 import com.raxdenstudios.mvp.sample.R;
 import com.raxdenstudios.mvp.sample.presenter.LoginFragmentPresenter;
 
-public class LoginFragment extends MVPFragment<LoginFragmentPresenter> implements LoginFragmentView {
+public class LoginFragment extends MVPFragment<LoginFragmentPresenter> implements ILoginFragmentView {
 
     private MainFragmentCallback mCallback;
     private EditText mEmailEditText;
