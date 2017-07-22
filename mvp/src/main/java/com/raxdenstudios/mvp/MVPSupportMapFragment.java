@@ -1,11 +1,11 @@
 package com.raxdenstudios.mvp;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import com.google.android.gms.maps.SupportMapFragment;
 import com.raxdenstudios.mvp.presenter.IPresenter;
 import com.raxdenstudios.mvp.view.IView;
 
@@ -26,7 +26,7 @@ import com.raxdenstudios.mvp.view.IView;
  *              onDestroyView           ->      onDropView
  *              onDestroy               ->      onDestroy
  */
-public abstract class MVPFragment<TPresenter extends IPresenter> extends Fragment
+public abstract class MVPSupportMapFragment<TPresenter extends IPresenter> extends SupportMapFragment
         implements IView {
 
     public TPresenter mPresenter;
