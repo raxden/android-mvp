@@ -26,7 +26,7 @@ import com.raxdenstudios.mvp.view.IView;
  *              onDestroyView           ->      onDropView
  *              onDestroy               ->      onDestroy
  */
-public abstract class MVPSupportMapFragment<TPresenter extends IPresenter> extends MapFragment
+public abstract class MVPMapFragment<TPresenter extends IPresenter> extends MapFragment
         implements IView {
 
     public TPresenter mPresenter;
