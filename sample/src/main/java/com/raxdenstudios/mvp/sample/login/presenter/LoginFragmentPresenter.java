@@ -1,4 +1,4 @@
-package com.raxdenstudios.mvp.sample.presenter;
+package com.raxdenstudios.mvp.sample.login.presenter;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.os.Handler;
 
 import com.raxdenstudios.mvp.model.UserModel;
 import com.raxdenstudios.mvp.presenter.Presenter;
-import com.raxdenstudios.mvp.sample.view.ILoginFragmentView;
+import com.raxdenstudios.mvp.sample.login.view.ILoginFragmentView;
 
 public class LoginFragmentPresenter extends Presenter<ILoginFragmentView> implements ILoginFragmentPresenter {
 

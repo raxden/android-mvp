@@ -1,4 +1,4 @@
-package com.raxdenstudios.mvp.sample.view;
+package com.raxdenstudios.mvp.sample.login.view;
 
 import com.raxdenstudios.mvp.view.ILoaderView;
 

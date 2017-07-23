@@ -1,4 +1,4 @@
-package com.raxdenstudios.mvp.sample.view;
+package com.raxdenstudios.mvp.sample.login.view;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,7 +12,7 @@ import android.widget.EditText;
 
 import com.raxdenstudios.mvp.MVPFragment;
 import com.raxdenstudios.mvp.sample.R;
-import com.raxdenstudios.mvp.sample.presenter.LoginFragmentPresenter;
+import com.raxdenstudios.mvp.sample.login.presenter.LoginFragmentPresenter;
 
 public class LoginFragment extends MVPFragment<LoginFragmentPresenter> implements ILoginFragmentView {
 

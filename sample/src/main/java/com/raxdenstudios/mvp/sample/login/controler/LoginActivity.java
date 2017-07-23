@@ -1,4 +1,4 @@
-package com.raxdenstudios.mvp.sample.controler;
+package com.raxdenstudios.mvp.sample.login.controler;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 
 import com.raxdenstudios.mvp.sample.R;
-import com.raxdenstudios.mvp.sample.view.LoginFragment;
+import com.raxdenstudios.mvp.sample.login.view.LoginFragment;
 
 public class LoginActivity extends AppCompatActivity implements LoginFragment.MainFragmentCallback {
 

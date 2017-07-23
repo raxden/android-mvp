@@ -1,4 +1,4 @@
-package com.raxdenstudios.mvp.sample.presenter;
+package com.raxdenstudios.mvp.sample.login.presenter;
 
 public interface ILoginFragmentPresenter {
 
