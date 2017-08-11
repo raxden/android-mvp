@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.raxdenstudios.mvp.model.UserModel;
+import com.raxdenstudios.mvp.sample.login.UserModel;
 import com.raxdenstudios.mvp.presenter.Presenter;
 import com.raxdenstudios.mvp.sample.login.view.ILoginFragmentView;
 

@@ -1,4 +1,4 @@
-package com.raxdenstudios.mvp.model;
+package com.raxdenstudios.mvp.sample.login;
 
 import android.os.Parcel;
 import android.os.Parcelable;
