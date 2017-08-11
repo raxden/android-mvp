@@ -78,6 +78,14 @@ public abstract class MVPDialogFragment<TPresenter extends IPresenter> extends D
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        if (mPresenter != null) {
+            mPresenter.onStart();
+        }
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         if (mPresenter != null) {
@@ -90,6 +98,14 @@ public abstract class MVPDialogFragment<TPresenter extends IPresenter> extends D
         super.onPause();
         if (mPresenter != null) {
             mPresenter.onPause();
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mPresenter != null) {
+            mPresenter.onStop();
         }
     }
 
