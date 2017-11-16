@@ -16,12 +16,12 @@ import com.raxdenstudios.mvp.sample.login.presenter.LoginFragmentPresenter;
 
 public class LoginFragment extends MVPFragment<LoginFragmentPresenter> implements ILoginFragmentView {
 
-    private MainFragmentCallback mCallback;
+    private Callback mCallback;
     private EditText mEmailEditText;
     private EditText mPasswordEditText;
     private Button mLoginButton;
 
-    public interface MainFragmentCallback {
+    public interface Callback {
         void onUserLooged();
         void onError(String title, String message);
     }
@@ -37,8 +37,8 @@ public class LoginFragment extends MVPFragment<LoginFragmentPresenter> implement
     public void onAttach(Activity activity) {
         super.onAttach(activity);
 
-        if (activity instanceof MainFragmentCallback) {
-            mCallback = (MainFragmentCallback) activity;
+        if (activity instanceof Callback) {
+            mCallback = (Callback) activity;
         }
     }
 
