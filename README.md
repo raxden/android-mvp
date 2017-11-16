@@ -142,7 +142,7 @@ repositories {
 }
 
 dependencies {
-	    compile 'com.github.raxden:AndroidMVP:3.0.14@aar'
+	    compile 'com.github.raxden:AndroidMVP:3.0.15@aar'
 }
 ```
 
@@ -157,7 +157,7 @@ dependencies {
 <dependency>
 	    <groupId>com.github.raxden</groupId>
 	    <artifactId>AndroidMVP</artifactId>
-	    <version>3.0.14</version>
+	    <version>3.0.15</version>
 </dependency>
 ```
 
@@ -167,7 +167,7 @@ dependencies {
 
 ### Documentation
 
-For a **detailed documentation**, please have a look at the [**Wiki**](https://github.com/raxden/AndroidMVP/wiki) or the [**Javadocs**](https://jitpack.io/com/github/raxden/AndroidMVP/3.0.14/javadoc/).
+For a **detailed documentation**, please have a look at the [**Wiki**](https://github.com/raxden/AndroidMVP/wiki) or the [**Javadocs**](https://jitpack.io/com/github/raxden/AndroidMVP/3.0.15/javadoc/).
 
 ## LICENSE
 
