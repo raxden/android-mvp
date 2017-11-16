@@ -20,6 +20,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation deps.mvp.implementation
+    api deps.mvp.api
     annotationProcessor deps.mvp.annotationProcessor
     compileOnly deps.mvp.compileOnly
     testImplementation deps.mvp.testImplementation
