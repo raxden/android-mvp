@@ -12,6 +12,9 @@ ext {
                     implementation: [
 
                     ],
+                    api: [
+
+                    ],
                     annotationProcessor : [
 
                     ],
@@ -32,6 +35,9 @@ ext {
                             "com.android.support:appcompat-v7:${supportLibraryVersion}",
                             "com.android.support:design:${supportLibraryVersion}",
                             "com.google.android.gms:play-services-maps:${servicesVersion}"
+                    ],
+                    api: [
+
                     ],
                     annotationProcessor : [
 
