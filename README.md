@@ -3,7 +3,6 @@ Android MVP
 
 Android MVP is a base library to work with [Model-View-Presenter](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter) pattern. Works on Android 4.1 (API level 16) and upwards.
 
-[![Release](https://jitpack.io/v/raxden/android-mvp.svg)](https://jitpack.io/#raxden/android-mvp)
 [![Release](https://img.shields.io/github/tag/raxden/android-mvp.svg?label=Download)](https://jitpack.io/#raxden/android-mvp/)
 [![API](https://img.shields.io/badge/API-16%2B-green.svg?style=flat)](https://android-arsenal.com/api?level=16)
 
@@ -143,7 +142,7 @@ repositories {
 }
 
 dependencies {
-	    compile 'com.github.raxden:AndroidMVP:3.0.13@aar'
+	    compile 'com.github.raxden:AndroidMVP:3.0.14@aar'
 }
 ```
 
@@ -158,7 +157,7 @@ dependencies {
 <dependency>
 	    <groupId>com.github.raxden</groupId>
 	    <artifactId>AndroidMVP</artifactId>
-	    <version>3.0.13</version>
+	    <version>3.0.14</version>
 </dependency>
 ```
 
@@ -168,7 +167,7 @@ dependencies {
 
 ### Documentation
 
-For a **detailed documentation**, please have a look at the [**Wiki**](https://github.com/raxden/AndroidMVP/wiki) or the [**Javadocs**](https://jitpack.io/com/github/raxden/AndroidMVP/3.0.13/javadoc/).
+For a **detailed documentation**, please have a look at the [**Wiki**](https://github.com/raxden/AndroidMVP/wiki) or the [**Javadocs**](https://jitpack.io/com/github/raxden/AndroidMVP/3.0.14/javadoc/).
 
 ## LICENSE
 
